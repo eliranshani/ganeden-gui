@@ -1,20 +1,25 @@
-import * as React from 'react';
+import React from 'react';
+import { Router, Route } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory'
+
+import Login from 'src/views/login';
+import Header from 'src/components/header';
+import Main from 'src/views/main';
+
 import './App.css';
 
-import logo from './logo.svg';
+const history = createBrowserHistory();
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to GanEden</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Router history={history}>
+        <div className="App">
+          <Header />
+          <Route exact={true} path='/login' component={Login} />
+          <Main />
+        </div>
+      </Router>
     );
   }
 }
