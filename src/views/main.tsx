@@ -3,6 +3,7 @@ import {Redirect, RouteComponentProps, withRouter} from "react-router-dom";
 import { isLoggedIn } from "src/helpers/login-helpers";
 
 import List from 'src/views/list';
+import Footer from 'src/components/footer';
 
 class Main extends React.Component<RouteComponentProps<null>> {
   public render() {
@@ -13,6 +14,7 @@ class Main extends React.Component<RouteComponentProps<null>> {
     return (
       <div className="main">
         <List />
+        <Footer />
       </div>
     )
   }
