@@ -4,6 +4,7 @@ import { isLoggedIn } from "src/helpers/login-helpers";
 
 import List from 'src/views/list';
 import Match from 'src/views/match/match';
+import Progress from 'src/views/progress/progress';
 import Footer from 'src/components/footer';
 
 class Main extends React.Component<RouteComponentProps<null>> {
@@ -19,7 +20,10 @@ class Main extends React.Component<RouteComponentProps<null>> {
             <List history={this.props.history} />
           </Route>
           <Route exact={true} path='/match'>
-            <Match />
+            <Match history={this.props.history} />
+          </Route>
+          <Route exact={true} path='/progress'>
+            <Progress />
           </Route>
         </Switch>
         <Footer />

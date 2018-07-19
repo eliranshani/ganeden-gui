@@ -22,6 +22,9 @@ class Index extends React.Component<RouteComponentProps<null>> {
         <div className="logo-container">
           <div>
             <img src={logo} className="App-logo" alt="logo" />
+            <h4>
+              Your friends know you the best!
+            </h4>
           </div>
         </div>
         <button onClick={this.handleLogin} className="login-button">Login with facebook</button>

@@ -1,11 +1,12 @@
 interface IFriend {
   name: string,
-  photoUrl: string
+  photoUrl: string,
+  age: number,
+  location: string
 }
 
-export const state: { friends: IFriend[], matches: IFriend[], matching: number} = {
+export const state: { friends: IFriend[], matches?: [number, number], matching: number, selectedMatch?: number} = {
   friends: [],
-  matches: [],
   matching: 0,
 };
 

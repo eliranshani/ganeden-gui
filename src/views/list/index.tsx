@@ -12,7 +12,9 @@ interface IState {
 
 interface IFriend {
   name: string,
-  photoUrl: string
+  photoUrl: string,
+  age: number,
+  location: string
 }
 
 class List extends React.Component<{history: {push(url: string): void}}, IState> {
