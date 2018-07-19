@@ -1,6 +1,7 @@
 .friends-list {
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
 
   &.loading {
     align-items: center;

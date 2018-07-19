@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Friend from 'src/components/friend';
+import { setState } from 'src/helpers/state';
 
 import './list.css';
 
@@ -24,10 +25,15 @@ class List extends React.Component<{}, IState> {
     this.getFriends();
   }
 
+  private handleMatch = (index: number) => {
+    setState('matching', index);
+  };
+
   private getFriends = async () => {
     await fetch('/singles').then((response) => {
       return response.json()
     }).then(friends => {
+      setState('friends', friends.result);
       this.setState({friends: friends.result, isLoading: false})
     })
   };
@@ -44,7 +50,7 @@ class List extends React.Component<{}, IState> {
     return (
       <div className="friends-list">
         {this.state.friends.map((user: IFriend, index) => <Friend
-          key={index} name={user.name} photoUrl={user.photoUrl}
+          key={index} name={user.name} photoUrl={user.photoUrl} onClick={() => this.handleMatch(index)}
         />)}
       </div>
     );
@@ -52,22 +58,3 @@ class List extends React.Component<{}, IState> {
 }
 
 export default List;
-
-// const users = [
-//   {
-//     name: 'joseph li',
-//     photoUrl: 'https://randomuser.me/api/portraits/men/77.jpg'
-//   },
-//   {
-//     name: 'aureliana nascimento',
-//     photoUrl: 'https://randomuser.me/api/portraits/women/49.jpg'
-//   },
-//   {
-//     name: 'anni heino',
-//     photoUrl: 'https://randomuser.me/api/portraits/women/6.jpg'
-//   },
-//   {
-//     name: 'dominic jean-baptiste',
-//     photoUrl: 'https://randomuser.me/api/portraits/men/48.jpg'
-//   },
-// ];

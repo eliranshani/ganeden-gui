@@ -1,3 +1,45 @@
 .footer {
   margin-top: auto;
+  box-shadow: 0 -2px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 50px;
+  position: relative;
+  height: 30px;
+
+  .icon {
+    width: 50px;
+    height: 100%;
+    display: block;
+
+    > img {
+      height: 20px;
+      display: block;
+      position: relative;
+      top: 5px;
+
+    }
+
+    &:last-child {
+      > img {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .plus-button {
+    border-radius: 100%;
+    font-weight: 300;
+    background: #e83079;
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    color: #fff;
+    top: calc(-50% - -2px);
+    left: calc(50% - 26px);
+    padding: 4px 17px;
+    box-sizing: border-box;
+    box-shadow: 0px 7px 30px -6px #e83079;
+  }
 }
