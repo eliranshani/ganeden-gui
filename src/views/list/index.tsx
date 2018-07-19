@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Friend from 'src/components/friend';
-import { setState } from 'src/helpers/state';
+import { state, setState } from 'src/helpers/state';
 
 import './list.css';
 
@@ -15,18 +15,23 @@ interface IFriend {
   photoUrl: string
 }
 
-class List extends React.Component<{}, IState> {
+class List extends React.Component<{history: {push(url: string): void}}, IState> {
   public state = {
     friends: [],
     isLoading: true
   };
 
-  public componentDidMount() {
-    this.getFriends();
+  public componentWillMount() {
+    if (!state.friends.length) {
+      this.getFriends();
+      return;
+    }
+    this.setState({friends: state.friends, isLoading: false})
   }
 
   private handleMatch = (index: number) => {
     setState('matching', index);
+    this.props.history.push('/match');
   };
 
   private getFriends = async () => {

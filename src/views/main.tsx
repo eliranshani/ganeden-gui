@@ -1,8 +1,9 @@
 import React from 'react';
-import {Redirect, RouteComponentProps, withRouter} from "react-router-dom";
+import {Redirect, RouteComponentProps, withRouter, Route, Switch} from "react-router-dom";
 import { isLoggedIn } from "src/helpers/login-helpers";
 
 import List from 'src/views/list';
+import Match from 'src/views/match/match';
 import Footer from 'src/components/footer';
 
 class Main extends React.Component<RouteComponentProps<null>> {
@@ -13,7 +14,14 @@ class Main extends React.Component<RouteComponentProps<null>> {
 
     return (
       <div className="main">
-        <List />
+        <Switch>
+          <Route exact={true} path='/'>
+            <List history={this.props.history} />
+          </Route>
+          <Route exact={true} path='/match'>
+            <Match />
+          </Route>
+        </Switch>
         <Footer />
       </div>
     )

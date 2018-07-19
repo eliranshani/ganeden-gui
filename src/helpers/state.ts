@@ -1,7 +1,12 @@
-export const state = {
+interface IFriend {
+  name: string,
+  photoUrl: string
+}
+
+export const state: { friends: IFriend[], matches: IFriend[], matching: number} = {
   friends: [],
   matches: [],
-  matching: {},
+  matching: 0,
 };
 
 export const setState = (key: string, value: any) => {
